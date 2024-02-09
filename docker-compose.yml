@@ -1,0 +1,14 @@
+version: '3'
+services:
+  cypress:
+    image: cypress/included:13.6.4
+    container_name: my-cypress-tests
+    volumes:
+      - ./cypress:/e2e/cypress
+      - ./cypress.config.js:/e2e/cypress.config.js
+      - cypress-node-modules:/e2e/node_modules
+    working_dir: /e2e
+    entrypoint: /bin/bash
+    command: ["-c", "npx cypress run"]
+volumes:
+  cypress-node-modules: 
