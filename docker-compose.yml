@@ -1,7 +1,9 @@
 version: '3'
 services:
   cypress:
-    image: cypress/included:13.6.4
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: my-cypress-tests
     volumes:
       - ./cypress:/e2e/cypress
